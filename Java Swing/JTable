@@ -1,0 +1,75 @@
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+public class Table extends JFrame {
+private Container c;
+private JLabel label;
+private Font font;
+private JTable table;
+private JScrollPane scroll;
+private final String[] cols = {"ID","Name","GPA"};
+private final String[][] rows = {
+{"101","Oishee","3.34"},
+{"103","Samira","3.74"},
+{"103","Nafisa","3.74"},
+{"104","Anika","2.89"},
+private Container c;
+private JLabel label;
+private Font font;
+private JTable table;
+private JScrollPane scroll;
+private final String[] cols = {"ID","Name","GPA"};
+private final String[][] rows = {
+{"101","Oishee","3.34"},
+{"103","Samira","3.74"},
+{"103","Nafisa","3.74"},
+{"104","Anika","2.89"},
+};
+
+private Container c;
+private JLabel label;
+private Font font;
+private JTable table;
+private JScrollPane scroll;
+private final String[] cols = {"ID","Name","GPA"};
+private final String[][] rows = {
+{"101","Oishee","3.34"},
+{"103","Samira","3.74"},
+{"103","Nafisa","3.74"},
+{"104","Anika","2.89"},
+};
+Table()
+{
+initComponents();
+}
+public final void initComponents()
+{
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setBounds(100,100,450,450);
+this.setTitle("Table");
+
+
+c = this.getContentPane();
+c.setBackground(Color.CYAN);
+
+c.setLayout(null);
+font = new Font("Arial",Font.BOLD,18);
+label = new JLabel("Student Details");
+label.setFont(font);
+label.setBounds(250,20,200,50);
+c.add(label);
+table = new JTable(rows,cols);
+scroll = new JScrollPane(table);
+scroll.setBounds(50,80,600,150);
+c.add(scroll);
+}
+public static void main(String[] args) {
+Table frame = new Table();
+frame.setVisible(true);
+}
+}
