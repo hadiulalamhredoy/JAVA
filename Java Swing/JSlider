@@ -1,0 +1,88 @@
+10. Write a Java Swing Programme How To Create a Slider with
+Change Lisenter.
+Input:
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+public class Slider extends JFrame implements ChangeListener{
+private Container c;
+private JLabel redlabel,bluelabel,greeenlabel,previewlabel;
+private JSlider redslider,blueslider,greenslider;
+private JTextField redTf,blueTf,greenTf;
+private JPanel panel;
+Slider()
+{
+initComponents();
+}
+private void initComponents()
+{
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setBounds(100,100,400,300);
+this.setTitle("Slider");
+c = this.getContentPane();
+c.setLayout(null);
+c.setBackground(Color.ORANGE);
+redlabel = new JLabel("Red");
+redlabel.setBounds(50,50,80,50);
+c.add(redlabel);
+redslider = new JSlider(0,255,0);
+redslider.setBounds(90,50,300,50);
+c.add(redslider);
+redTf = new JTextField();
+redTf.setHorizontalAlignment(JTextField.CENTER);
+redTf.setBounds(400,50,80,40);
+c.add(redTf);
+bluelabel = new JLabel("Blue");
+bluelabel.setBounds(50,170,80,50);
+c.add(bluelabel);
+blueslider = new JSlider(0,255,0);
+blueslider.setBounds(90,170,300,50);
+c.add(blueslider);
+blueTf = new JTextField ();
+blueTf.setHorizontalAlignment(JTextField.CENTER);
+blueTf.setBounds(400,170,80,40);
+c.add(blueTf);
+greeenlabel = new JLabel("Green");
+greeenlabel.setBounds(50,110,80,50);
+c.add(greeenlabel);
+greenslider = new JSlider(0,255,0);
+greenslider.setBounds(90,110,300,50);
+c.add(greenslider);
+greenTf = new JTextField();
+greenTf.setHorizontalAlignment(JTextField.CENTER);
+greenTf.setBounds(400,110,80,40);
+c.add(greenTf);
+panel = new JPanel();
+panel.setBackground(Color.pink);
+panel.setBounds(550,50,200,160);
+c.add(panel);
+previewlabel = new JLabel("Preview");
+previewlabel.setBounds(630,200,100,50);
+c.add(previewlabel);
+redslider.addChangeListener(this);
+blueslider.addChangeListener(this);
+greenslider.addChangeListener(this);
+}
+public void stateChanged(ChangeEvent e)
+{
+int redValue = redslider.getValue();
+int blueValue = blueslider.getValue();
+int greenValue = greenslider.getValue();
+redTf.setText(""+redValue);
+blueTf.setText(""+blueValue);
+greenTf.setText(""+greenValue);
+Color color = new Color(redValue,blueValue,greenValue);
+panel.setBackground(color);
+}
+public static void main(String[] args) {
+Slider frame = new Slider();
+frame.setVisible(true);
+}
+}
