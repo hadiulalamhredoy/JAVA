@@ -1,0 +1,78 @@
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+public class CheckBox extends JFrame{
+private Container c;
+private JCheckBox javaCheckBox,cCheckBox,mysqlCheckBox;
+private ButtonGroup grp;
+private Font f;
+private JLabel label;
+CheckBox()
+{
+initComponents();
+}
+public void initComponents()
+{
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setBounds(500,400,200,300);
+this.setTitle("CheckBox");
+c = this.getContentPane();
+c.setLayout(null);
+c.setBackground(Color.MAGENTA);
+grp = new ButtonGroup();
+f = new Font("Arial",Font.ITALIC,18);
+cCheckBox = new JCheckBox("C++");
+cCheckBox.setBounds(50,100,100,30);
+cCheckBox.setBackground(Color.CYAN);
+cCheckBox.setFont(f);
+c.add(cCheckBox);
+javaCheckBox = new JCheckBox("JAVA");
+javaCheckBox.setBounds(50,130,100,30);
+javaCheckBox.setBackground(Color.CYAN);
+javaCheckBox.setFont(f);
+c.add(javaCheckBox);
+mysqlCheckBox = new JCheckBox("mysql");
+mysqlCheckBox.setBounds(50,160,100,30);
+mysqlCheckBox.setBackground(Color.CYAN);
+mysqlCheckBox.setFont(f);
+c.add(mysqlCheckBox);
+grp.add(javaCheckBox);
+grp.add(cCheckBox);
+grp.add(mysqlCheckBox);
+label = new JLabel("You haven't selected Anything");
+label.setBounds(50,200,300,30);
+label.setFont(f);
+c.add(label);
+Handler handler = new Handler();
+javaCheckBox.addActionListener(handler);
+cCheckBox.addActionListener(handler);
+mysqlCheckBox.addActionListener(handler);
+}
+class Handler implements ActionListener{
+public void actionPerformed(Action Event e){
+if(javaCheckBox.isSelected())
+{
+label.setText("You have selected Java");
+}
+else if (cCheckBox.isSelected())
+{
+label.setText("you have selected c++");
+}
+else
+{
+label.setText("you have selected mysql");
+}
+}
+}
+public static void main(String[] args) {
+CheckBox frame = new CheckBox();
+frame.setVisible(true);
+}
+}
