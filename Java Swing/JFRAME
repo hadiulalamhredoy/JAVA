@@ -1,0 +1,67 @@
+ package javaswing;
+ import javax.swing.JFrame;
+ public class Frame {
+ public static void main(String[] args) {
+ JFrame frame = new JFrame();
+ frame.setVisible(true);
+ frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ frame.setBounds(200,50,400,300);
+ frame.setTitle("Frame");
+ frame.setResizable(false);
+ }
+}
+
+
+package javaswing;
+ import javax.swing.ImageIcon;
+ import javax.swing.JFrame;
+ public class FrameDemo extends JFrame{
+ private ImageIcon icon;
+ FrameDemo()
+ {
+ initComponents();
+ }
+ public void initComponents()
+ {
+ icon = new ImageIcon(getClass().getResource("image.png"));
+ this.setIconImage(icon.getImage());
+ }
+ public static void main(String[] args) {
+ FrameDemo frame =new FrameDemo();
+ frame.setVisible(true);
+ frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ frame.setBounds(200,50,400,300);
+ frame.setTitle("Frame");
+ frame.setResizable(false);
+ }
+}
+
+
+ package javaswing;
+ import java.awt.Color;
+ import javax.swing.ImageIcon;
+ import javax.swing.JFrame;
+ import java.awt.Container;
+ public class FrameDemo extends JFrame{
+ private ImageIcon icon;
+ private Container c;
+ FrameDemo()
+ {
+initComponents();
+ }
+ public void initComponents()
+ {
+ c =this.getContentPane();
+ c.setBackground(Color.blue);
+ icon = new ImageIcon(getClass().getResource("image.png"));
+ this.setIconImage(icon.getImage());
+ }
+ public static void main(String[] args) {
+ FrameDemo frame =new FrameDemo();
+ frame.setVisible(true);
+ frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ frame.setBounds(200,50,400,300);
+ frame.setTitle("Frame");
+ frame.setResizable(false);
+ }
+ }
