@@ -1,0 +1,32 @@
+ackage javaswing;
+ import java.awt.Color;
+ import java.awt.Container;
+ import javax.swing.JFrame;
+ public class Label extends JFrame{
+private Container c;
+ private JLabel userLabel,passLabel;
+ Label()
+ {
+ initComponents();
+ }
+ public void initComponents()
+ {
+ c = this.getContentPane();
+ c.setLayout(null);
+ c. setBackground(Color.PINK);
+ userLabel = new JLabel();
+ userLabel.setText("Enter your username : ");
+ userLabel.setBounds(50,20,150,200);
+ c.add(userLabel);
+ passLabel = new JLabel("Enter your password : ");
+ passLabel.setBounds(50,80,150,50);
+ c.add(passLabel);
+ }
+ public static void main(String[] args) {
+ Label frame = new Label();
+ frame.setVisible(true);
+ frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ frame.setBounds(200,50,400);
+ frame.setTitle("Label");
+}
+ }
