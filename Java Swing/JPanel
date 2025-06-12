@@ -1,0 +1,50 @@
+1. Write a Java Swing Programme How to Create and Use JPanel.
+Input:
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+public class Panel extends JFrame {
+private Container c;
+private JPanel panel1 ,panel2;
+private JButton bt1,btn2,bt3;
+
+Panel()
+{
+initComponents();
+}
+public void initComponents()
+{
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setBounds(100,100,670,500);
+this.setTitle("JPanel");
+c = this.getContentPane();
+c.setLayout(null);
+JButton btn1 = new JButton("1");
+btn2 = new JButton("2");
+JButton btn3 = new JButton("3");
+panel1 = new JPanel();
+panel1.setBounds(100,100,250,300);
+panel1.setBackground(Color.BLUE);
+c.add(panel1);
+panel2 = new JPanel();
+panel2.setBounds(355,100,250,300);
+panel2.setBackground(Color.red);
+c.add(panel2);
+panel1.add(btn1);
+panel2.add(btn2);
+
+
+
+}
+public static void main(String[]args){
+Panel frame = new Panel ();
+frame.setVisible(true);
+}
+}
+}
+
+
+
+
