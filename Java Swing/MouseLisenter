@@ -1,0 +1,52 @@
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import java.awt.event.MouseListener;
+public class MouseLisenter extends JFrame {
+private Container c;
+private JTextArea ta;
+private JTextField tf;
+private JScrollPane scroll;
+MouseLisenter()
+{
+initComponents();
+}
+private void initComponents()
+{
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setBounds(100,100,500,500);
+this.setTitle("MouseLisenter");
+c = this.getContentPane();
+c.setBackground(Color.GRAY);
+c.setLayout(null);
+tf = new JTextField();
+tf.setBounds(20,20,150,50);
+c.add(tf);
+ta = new JTextArea();
+ta.setBounds(10,80,200,200);
+ta.setBackground(Color.GREEN);
+c.add(ta);
+scroll = new JScrollPane(ta);
+scroll.setBounds(10,80,300,300);
+c.add(scroll);
+tf.addMouseLisenter(new MouseLisenter(){
+public void mouseClicked(MouseEvent me){
+ta.append("Mouse Clicked");
+}
+public void mousePressed(MouseEvent me){
+ta.append("MouseClicked");
+}
+public void mouseExited(MouseEvent me){
+ta.append("Mouse Exited")
+}
+}
+}
+public static void main(String[] args) {
+MouseLisenter frame = new MouseLisenter();
+frame.setVisible(true);
+}
+}
