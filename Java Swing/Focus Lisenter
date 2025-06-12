@@ -1,0 +1,43 @@
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+public class FocusLisenter extends JFrame {
+private Container c;
+private JTextArea ta;
+private JButton btn ;
+FocusLisenter()
+{
+initComponents();
+}
+public void initComponents()
+{
+this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+this.setBounds(100,100,500,400);
+this.setTitle("FocusLisenter");
+c = this.getContentPane();
+c.setLayout(null);
+c.setBackground(Color.BLUE);
+btn = new JButton("Button");
+btn.setBounds(10,50,80,50);
+c.add(btn);
+ta = new JTextArea();
+ta.setBounds(100,30,200,200);
+c.add(ta);
+btn.addFocusLisenter(new FocusLisenter (){
+public void focusGained(FocusEvent fe) {
+ta.setText("Focus gained");
+}
+public void focusLosted(FocusEvent fe)
+{
+ta.setText("Focus Lost");
+}
+});
+}
+public static void main(String[] args) {
+FocusLisenter frame = new FocusLisenter();
+frame.setVisible(true);
+}
+}
