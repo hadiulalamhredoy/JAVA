@@ -1,0 +1,85 @@
+package javaswing;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class Test extends JFrame{
+private Container c;
+private JLabel imgLabel ,textLabel;
+private JTextArea ta;
+private JTextField tf;
+private JButton clearButton;
+private ImageIcon img;
+private Font f;
+Test()
+{
+c = this.getContentPane();
+c.setLayout(null);
+c.setBackground(Color.GRAY);
+f = new Font("Tahoma",Font.BOLD,20);
+img = new ImageIcon(getClass().getResource("capture1.PNG"));
+imgLabel = new JLabel(img);
+imgLabel.setBounds(10,5,img.getIconWidth(),img.getIconHeight());
+c.add(imgLabel);
+textLabel = new JLabel("Enter any number : ");
+textLabel .setBounds(20,200,250,50);
+textLabel.setForeground(Color.PINK);
+textLabel.setFont(f);
+c.add(textLabel);
+
+tf = new JTextField();
+tf.setBounds(230,260,90,50);
+tf.setBackground(Color.GREEN);
+tf.setFont(f);
+tf.setHorizontalAlignment(JTextField.CENTER);
+c.add(tf);
+clearButton = new JButton("Clear");
+clearButton.setBounds(230,260,90,50);
+clearButton.setBackground(Color.GREEN);
+c.add(clearButton);
+ta = new JTextArea();
+ta.setBounds(20,350,300,300);
+ta.setFont(f);
+ta.setBackground(Color.ORANGE);
+c.add(ta);
+ta.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e)
+{
+String vaule = tf.getText();
+if(value.isEmpty())
+{
+JOption.showMessageDialog(null,"you didnt put any
+number" );
+}
+int num =Integer.parseInt tf.getText());
+for(int i = 1; i<=10; i++)
+{
+int result = num * i ;
+String r = String.vauleof(result);
+String n = String.vauleof(num);
+String incr = String.vauleof(i);
+ta.append(n+ " X " +incr + " = "+r+"\n");
+}
+}
+});
+clearButton.addActionListener( new ActionListener (){
+public void actionPerformed(ActionEvent e){
+ta.setText("");
+}
+}
+}
+public static void main(String[] args) {
+Test frame = new Test();
+frame.setVisible(true);
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setBounds(100,50,500,400);
+frame.setTitle("Multipication Table");
+}
+}
